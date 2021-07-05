@@ -1,0 +1,347 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.2.313/W64 for ARM                  04/Jul/2021  16:24:56
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Exe\assignment6.out
+#    Map file     =
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\List\assignment6.map
+#    Command line =
+#        -f
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Exe\assignment6.out.rsp
+#        (C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\clock\clock.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\driver\Driver_GPIO\Driver_GPIO.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\hal_GPIO\Hal_GPIO.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\Hal_PORT\Hal_PORT.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\HaL_UART\Hal_UART.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\main.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\HaL_UART\Hal_Queue\Queue.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\driver\SrecParse\SrecParse.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\startup\startup_MKL46Z4.o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\startup\system_MKL46Z4.o
+#        --no_out_extension -o
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Exe\assignment6.out
+#        --map
+#        C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\List\assignment6.map
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\NXP\MKL46Z256xxx4.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3ff] |
+                [from 0x410 to 0x3'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 4K, alignment = 8 { };
+"P3":  place in [from 0x1fff'e000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2000'5fff] {
+          rw, block CSTACK, block HEAP };
+"P5":  place in [from 0x400 to 0x40f] { section FlashConfig };
+
+No sections matched the following patterns:
+
+  ro section application_specific_ro  in "P2|P4"
+  rw section application_specific_rw  in "P2|P4"
+
+
+  Section          Kind         Address   Size  Object
+  -------          ----         -------   ----  ------
+"A0":                                     0xc0
+  .intvec          ro code          0x0   0xc0  startup_MKL46Z4.o [9]
+                                 - 0xc0   0xc0
+
+"P1", part 1 of 2:                       0x248
+  .text            ro code         0xc0   0x24  ABIassert.o [12]
+  .text            ro code         0xe4   0xd8  Queue.o [3]
+  .text            ro code        0x1bc   0xae  I32DivModFast.o [11]
+  .text            ro code        0x26a    0xa  abort.o [10]
+  .text            ro code        0x274    0x2  IntDivZer.o [11]
+  .text            ro code        0x276    0x2  startup_MKL46Z4.o [9]
+  .text            ro code        0x278   0x14  exit.o [12]
+  .text            ro code        0x28c    0x2  startup_MKL46Z4.o [9]
+  .text            ro code        0x290   0x78  Hal_GPIO.o [6]
+                                - 0x308  0x248
+
+"P5":                                     0x10
+  FlashConfig      ro code        0x400   0x10  startup_MKL46Z4.o [9]
+                                - 0x410   0x10
+
+"P1", part 2 of 2:                       0x9aa
+  .text            ro code        0x410  0x24c  Hal_UART.o [2]
+  .text            ro code        0x65c  0x1ba  SrecParse.o [8]
+  .text            ro code        0x818  0x11c  clock.o [5]
+  .text            ro code        0x934   0xd8  Driver_GPIO.o [7]
+  .text            ro code        0xa0c   0xbc  main.o [1]
+  .rodata          const          0xac8   0x44  Driver_GPIO.o [7]
+  .rodata          const          0xb0c   0x40  Hal_GPIO.o [6]
+  .rodata          const          0xb4c   0x40  Hal_UART.o [2]
+  .rodata          const          0xb8c   0x3c  clock.o [5]
+  .text            ro code        0xbc8   0x3c  zero_init3.o [11]
+  .text            ro code        0xc04   0x28  data_init.o [11]
+  .text            ro code        0xc2c   0x24  startup_MKL46Z4.o [9]
+  .iar.init_table  const          0xc50   0x10  - Linker created -
+  .text            ro code        0xc60   0x1e  cmain.o [11]
+  .text            ro code        0xc7e    0x4  low_level_init.o [10]
+  .text            ro code        0xc82    0x8  exit.o [10]
+  .text            ro code        0xc8a    0x2  startup_MKL46Z4.o [9]
+  .text            ro code        0xc8c    0xa  cexit.o [11]
+  .text            ro code        0xc96    0x2  startup_MKL46Z4.o [9]
+  .text            ro code        0xc98   0x1c  cstartup_M.o [11]
+  .rodata          const          0xcb4   0x14  Driver_GPIO.o [7]
+  .rodata          const          0xcc8   0x14  Driver_GPIO.o [7]
+  .rodata          const          0xcdc   0x10  Driver_GPIO.o [7]
+  .rodata          const          0xcec   0x10  Hal_UART.o [2]
+  .rodata          const          0xcfc   0x10  Hal_UART.o [2]
+  .rodata          const          0xd0c   0x10  Hal_UART.o [2]
+  .rodata          const          0xd1c   0x10  Hal_UART.o [2]
+  .rodata          const          0xd2c    0xc  Hal_GPIO.o [6]
+  .rodata          const          0xd38    0xc  Hal_UART.o [2]
+  .text            ro code        0xd44    0xc  system_MKL46Z4.o [9]
+  .rodata          const          0xd50    0x8  clock.o [5]
+  .text            ro code        0xd58    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd60    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd68    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd70    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd78    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd80    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd88    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd90    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xd98    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xda0    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xda8    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xdb0    0x8  startup_MKL46Z4.o [9]
+  .text            ro code        0xdb8    0x2  startup_MKL46Z4.o [9]
+  .rodata          const          0xdba    0x0  zero_init3.o [11]
+                                - 0xdba  0x9aa
+
+"P3", part 1 of 2:                        0xa8
+  .bss             zero     0x1fff'e000   0xa4  Queue.o [3]
+  .bss             zero     0x1fff'e0a4    0x4  SrecParse.o [8]
+                          - 0x1fff'e0a8   0xa8
+
+"P3", part 2 of 2:                       0x800
+  CSTACK                    0x1fff'e0a8  0x800  <Block>
+    CSTACK         uninit   0x1fff'e0a8  0x800  <Block tail>
+                          - 0x1fff'e8a8  0x800
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x308        0x3ff      0xf8
+        0xdba     0x3'ffff  0x3'f246
+  0x1fff'e8a8  0x1fff'ffff    0x1758
+  0x2000'0000  0x2000'5fff    0x6000
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xa8:
+          0x1fff'e000  0xa8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+command line/config:
+    --------------------------------------------
+    Total:
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source: [1]
+    main.o                 188
+    --------------------------------------------
+    Total:                 188
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\HaL_UART: [2]
+    Hal_UART.o             588      140
+    --------------------------------------------
+    Total:                 588      140
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\HaL_UART\Hal_Queue: [3]
+    Queue.o                216               164
+    --------------------------------------------
+    Total:                 216               164
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\Hal_PORT: [4]
+    --------------------------------------------
+    Total:
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\clock: [5]
+    clock.o                284       68
+    --------------------------------------------
+    Total:                 284       68
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\hal_GPIO: [6]
+    Hal_GPIO.o             120       76
+    --------------------------------------------
+    Total:                 120       76
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\driver\Driver_GPIO: [7]
+    Driver_GPIO.o          216      124
+    --------------------------------------------
+    Total:                 216      124
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\driver\SrecParse: [8]
+    SrecParse.o            442                 4
+    --------------------------------------------
+    Total:                 442                 4
+
+C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\startup: [9]
+    startup_MKL46Z4.o      350
+    system_MKL46Z4.o        12
+    --------------------------------------------
+    Total:                 362
+
+dl6M_tln.a: [10]
+    abort.o                 10
+    exit.o                   8
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                  22
+
+rt6M_tl.a: [11]
+    I32DivModFast.o        174
+    IntDivZer.o              2
+    cexit.o                 10
+    cmain.o                 30
+    cstartup_M.o            28
+    data_init.o             40
+    zero_init3.o            60
+    --------------------------------------------
+    Total:                 344
+
+shb_l.a: [12]
+    ABIassert.o             36
+    exit.o                  20
+    --------------------------------------------
+    Total:                  56
+
+    Gaps                     4
+    Linker created                   16    2'048
+------------------------------------------------
+    Grand Total:         2'842      424    2'216
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xc50          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xc60          --   Gb  - Linker created -
+?main                         0xc61         Code  Gb  cmain.o [11]
+CSTACK$$Base            0x1fff'e0a8          --   Gb  - Linker created -
+CSTACK$$Limit           0x1fff'e8a8          --   Gb  - Linker created -
+GPIO_DRV_GetInstance          0x963   0x2e  Code  Lc  Driver_GPIO.o [7]
+GPIO_DRV_OutputPinInit        0x991   0x48  Code  Gb  Driver_GPIO.o [7]
+GPIO_DRV_SetMuxMode           0x9d9   0x20  Code  Gb  Driver_GPIO.o [7]
+GPIO_HAL_SetPinDir            0x291   0x38  Code  Gb  Hal_GPIO.o [6]
+GPIO_HAL_WritePinOutput
+                              0x2c9   0x38  Code  Gb  Hal_GPIO.o [6]
+HAL_SIM_EnableClockPort
+                              0x819  0x11c  Code  Gb  clock.o [5]
+InitAll                       0xa41   0x74  Code  Lc  main.o [1]
+NVIC_EnableIRQ                0x411    0xe  Code  Lc  Hal_UART.o [2]
+PORT_HAL_SetMuxMode           0x935   0x2e  Code  Lc  Driver_GPIO.o [7]
+QUEUE_Init                     0xe5   0x40  Code  Gb  Queue.o [3]
+QUEUE_ReadData                0x16b   0x40  Code  Gb  Queue.o [3]
+QUEUE_ReceiveBuffer           0x125   0x46  Code  Gb  Queue.o [3]
+Region$$Table$$Base           0xc50          --   Gb  - Linker created -
+Region$$Table$$Limit          0xc60          --   Gb  - Linker created -
+SREC_CheckNumData             0x7a7   0x70  Code  Lc  SrecParse.o [8]
+SREC_CheckSumAndEnd           0x719   0x8e  Code  Lc  SrecParse.o [8]
+SREC_CheckType                0x65d   0x8a  Code  Lc  SrecParse.o [8]
+SREC_CheckType::u32Count
+                        0x1fff'e0a4    0x4  Data  Lc  SrecParse.o [8]
+SREC_ConvertCharInt           0x6ed   0x16  Code  Lc  SrecParse.o [8]
+SREC_RecordCheck              0x703   0x16  Code  Gb  SrecParse.o [8]
+SystemInit                    0xd45    0x8  Code  Gb  system_MKL46Z4.o [9]
+UART0_IRQHandler              0x613   0x22  Code  Gb  Hal_UART.o [2]
+UART_AsyncTransmit            0x5bf   0x4a  Code  Gb  Hal_UART.o [2]
+UART_ClearInterruptsFlag
+                              0x423    0xa  Code  Lc  Hal_UART.o [2]
+UART_EnableInterrupts         0x42d   0x1a  Code  Lc  Hal_UART.o [2]
+UART_GetChar                  0x41f    0x4  Code  Lc  Hal_UART.o [2]
+UART_Init                     0x447   0x72  Code  Gb  Hal_UART.o [2]
+UART_ReceivedQueue            0x609    0xa  Code  Gb  Hal_UART.o [2]
+UART_SetBaudRate              0x4b9   0xd6  Code  Lc  Hal_UART.o [2]
+UART_SetParityMode            0x58f   0x1e  Code  Lc  Hal_UART.o [2]
+UART_SetStopBitCount          0x5ad   0x12  Code  Lc  Hal_UART.o [2]
+__Vectors                       0x0          --   Gb  startup_MKL46Z4.o [9]
+__Vectors_End                  0xc0         Data  Gb  startup_MKL46Z4.o [9]
+__Vectors_Size {Abs}           0xc0          --   Gb  startup_MKL46Z4.o [9]
+__aeabi_assert                 0xc1   0x24  Code  Gb  ABIassert.o [12]
+__aeabi_idiv0                 0x275         Code  Gb  IntDivZer.o [11]
+__aeabi_uidiv                 0x1bd         Code  Gb  I32DivModFast.o [11]
+__aeabi_uidivmod              0x1bd         Code  Gb  I32DivModFast.o [11]
+__cmain                       0xc61         Code  Gb  cmain.o [11]
+__exit                        0x279   0x14  Code  Gb  exit.o [12]
+__iar_data_init3              0xc05   0x28  Code  Gb  data_init.o [11]
+__iar_program_start           0xc99         Code  Gb  cstartup_M.o [11]
+__iar_zero_init3              0xbc9   0x3c  Code  Gb  zero_init3.o [11]
+__low_level_init              0xc7f    0x4  Code  Gb  low_level_init.o [10]
+__vector_table                  0x0         Data  Gb  startup_MKL46Z4.o [9]
+__vector_table_0x1c            0x1c         Data  Gb  startup_MKL46Z4.o [9]
+_call_main                    0xc6d         Code  Gb  cmain.o [11]
+_exit                         0xc8d         Code  Gb  cexit.o [11]
+abort                         0x26b    0xa  Code  Gb  abort.o [10]
+exit                          0xc83    0x8  Code  Gb  exit.o [10]
+main                          0xa0d   0x34  Code  Gb  main.o [1]
+s_bufferQueue           0x1fff'e000   0xa4  Data  Lc  Queue.o [3]
+s_gpioBases                   0xcc8   0x14  Data  Lc  Driver_GPIO.o [7]
+s_portBases                   0xcb4   0x14  Data  Lc  Driver_GPIO.o [7]
+
+
+[1] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source
+[2] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\HaL_UART
+[3] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\HaL_UART\Hal_Queue
+[4] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\Hal_PORT
+[5] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\clock
+[6] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\Hal\hal_GPIO
+[7] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\driver\Driver_GPIO
+[8] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\source\driver\SrecParse
+[9] = C:\Users\84327\Desktop\ThuanND22_assignment6\project\Debug\Obj\startup
+[10] = dl6M_tln.a
+[11] = rt6M_tl.a
+[12] = shb_l.a
+
+  2'842 bytes of readonly  code memory
+    424 bytes of readonly  data memory
+  2'216 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
